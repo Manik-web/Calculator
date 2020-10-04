@@ -1,3 +1,15 @@
+let current= '';
+let a;
+let b;
+
+let display = document.querySelector("#display");
+display.innerHTML = 'This is a calculator';
+
+let displayInput = (event)=>{
+    current += event.toElement.innerHTML;
+    display.innerHTML = current;
+}
+
 let add = (a,b) =>{
     console.log(a+b);
     return a+b;
@@ -28,7 +40,11 @@ let operate = (a, b, operation)=>{
     }
 }
 
+
+
 /*console.log(divide(5,2));
 console.log(divide(5,0));*/
 
 console.log(operate(12, 4, subtract));
+let digits = document.getElementById('digits');
+digits.addEventListener('click',displayInput);
