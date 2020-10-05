@@ -10,6 +10,22 @@ let displayInput = (event)=>{
     display.innerHTML = current;
 }
 
+let displayOperate = (event)=>{
+    let ops = event.toElement.id;
+    if(a===undefined){
+        a=parseInt(current);
+        current ='';
+    }else if(a!==undefined){
+        b=parseInt(current);
+        console.log(a,b,ops);
+        let temp =operate(a,b,ops);
+        a=temp;
+        console.log(temp);
+    
+    }
+
+}
+
 let add = (a,b) =>{
     console.log(a+b);
     return a+b;
@@ -48,3 +64,6 @@ console.log(divide(5,0));*/
 console.log(operate(12, 4, subtract));
 let digits = document.getElementById('digits');
 digits.addEventListener('click',displayInput);
+
+let operators = document.getElementById('operators');
+operators.addEventListener('click',displayOperate);
