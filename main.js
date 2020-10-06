@@ -49,8 +49,7 @@ let calculate = (event)=>{
         current=a.toString();
         display.innerHTML = current;
         b=c;
-    }
-    
+    }current = '0';
 }
 
 let add = (a,b) =>{
@@ -84,7 +83,6 @@ let operate = (a, b, operation)=>{
 /*console.log(divide(5,2));
 console.log(divide(5,0));*/
 
-console.log(operate(12, 4, subtract));
 let digits = document.getElementById('digits');
 digits.addEventListener('click',displayInput);
 
