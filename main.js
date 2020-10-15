@@ -7,6 +7,8 @@ let tempOps;
 let display = document.querySelector("#display");
 display.innerHTML = 'This is a calculator';
 
+
+//numbers typed-> display
 let displayInput = (event)=>{
     if(current ==='0'){
         current = '';
@@ -17,9 +19,10 @@ let displayInput = (event)=>{
     
 }
 
+//if an operator is impressed
 let displayOperate = (event)=>{
     let ops = event.toElement.id;
-    
+
     if(a===undefined){
         a=parseInt(current);
         current ='';
@@ -27,7 +30,9 @@ let displayOperate = (event)=>{
     }else if(a!==undefined){
         b=parseInt(current);
         console.log(a,b,ops);
+        console.log(a,b,tempOps + 'temp');
         a =operate(a,b,tempOps);
+        tempOps = ops;
         
         current = a.toString();
         display.innerHTML = current;
@@ -35,13 +40,15 @@ let displayOperate = (event)=>{
     }
     current='';
 }
+
+//clr button
 let clearScreen = (event)=>{
     a=c;
     b=c;
     current='0';
     display.innerHTML = current;
 }
-
+//if equals is pressed
 let calculate = (event)=>{
     if(a!==undefined){
         b=parseInt(current);
