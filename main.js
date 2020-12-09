@@ -10,8 +10,12 @@ display.innerText = 'This is a calculator';
 
 //numbers typed-> display
 let displayInput = (event)=>{
+   
     if(current ==='CLEARED'){
         current = '';
+    }
+    if(event.toElement.innerHTML === '.'&&current.includes('.')){
+        return;
     }
 
     current += event.toElement.innerHTML;
@@ -30,8 +34,6 @@ let displayOperate = (event)=>{
         tempOps = ops;
     }else if(a!==undefined){
         b=parseFloat(current);
-        console.log(a,b,ops);
-        console.log(a,b,tempOps + 'temp');
         a =operate(a,b,tempOps);
         tempOps = ops;
         
@@ -51,12 +53,15 @@ let clearScreen = (event)=>{
 }
 //if equals is pressed
 let calculate = (event)=>{
+   
     if(a!==undefined){
+        if(current===''){}
+        else{
         b=parseFloat(current);
         a=operate(a,b,tempOps);
         current=a.toString();
         display.innerHTML = current;
-        b=c;
+        b=c;}
     }current = '0';
 }
 
@@ -88,8 +93,6 @@ let operate = (a, b, operation)=>{
 
 
 
-/*console.log(divide(5,2));
-console.log(divide(5,0));*/
 
 let digits = document.getElementById('digits');
 digits.addEventListener('click',displayInput);
